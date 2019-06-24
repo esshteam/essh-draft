@@ -60,6 +60,15 @@ export const blockToHTML = (block) => {
         end: '</figcaption></figure>',
       };
     }
+    case Block.VIDEO: {
+      const videoData = block.data;
+      const text = block.text;
+      const extraClass = (text.length > 0 ? ' md-block-video-has-caption' : '');
+      return {
+        start: `<figure class="md-block-video${extraClass}"><video src="${videoData.src}" alt="${block.text}" controls/><figcaption class="md-block-video-caption">`,
+        end: '</figcaption></figure>',
+      };
+    }
     case Block.ATOMIC:
       return {
         start: `<figure class="md-block-${blockClass}">`,

@@ -36,6 +36,7 @@ import {
 } from './model';
 
 import ImageButton from './components/sides/image';
+import VideoButton from './components/sides/video';
 
 /*
 A wrapper over `draft-js`'s default **Editor** component which provides
@@ -77,6 +78,7 @@ class MediumDraftEditor extends React.Component {
     })),
     placeholder: PropTypes.string,
     imageCaptionPlaceholder: PropTypes.string,
+    videoCaptionPlaceholder: PropTypes.string,
     continuousBlocks: PropTypes.arrayOf(PropTypes.string),
     sideButtons: PropTypes.arrayOf(PropTypes.shape({
       title: PropTypes.string.isRequired,
@@ -107,6 +109,7 @@ class MediumDraftEditor extends React.Component {
     inlineButtons: INLINE_BUTTONS,
     placeholder: 'Write your story...',
     imageCaptionPlaceholder: 'Add image caption...',
+    videoCaptionPlaceholder: 'Add video caption...',
     continuousBlocks: [
       Block.UNSTYLED,
       Block.BLOCKQUOTE,
@@ -119,6 +122,10 @@ class MediumDraftEditor extends React.Component {
       {
         title: 'Image',
         component: ImageButton,
+      },
+      {
+        title: 'Video',
+        component: VideoButton,
       },
     ],
     disableToolbar: false,
@@ -497,7 +504,7 @@ class MediumDraftEditor extends React.Component {
    */
   handlePastedText = (text, html, es) => {
     const currentBlock = getCurrentBlock(this.props.editorState);
-    if (currentBlock.getType() === Block.IMAGE) {
+    if (currentBlock.getType() === Block.IMAGE || currentBlock.getType() === Block.VIDEO) {
       const { editorState } = this.props;
       const content = editorState.getCurrentContent();
       this.onChange(

@@ -48,6 +48,19 @@
     }
 }
 
+.md-block-video {
+    margin: 0 0 10px 0;
+
+    img {
+        width: 100%;
+    }
+
+    figcaption {
+        text-align: center;
+        font-size: 0.9em;
+    }
+}
+
 .md-block-todo {
     margin: 10px 0 10px 0;
     

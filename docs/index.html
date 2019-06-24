@@ -137,6 +137,7 @@ const {
   beforeInput,
   getCurrentBlock,
   ImageSideButton,
+  VideoSideButton,
   rendererFn,
   HANDLED,
   NOT_HANDLED
@@ -423,6 +424,9 @@ class App extends React.Component {
     this.sideButtons = [{
       title: 'Image',
       component: ImageSideButton,
+    },{
+      title: 'Video',
+      component: VideoSideButton,
     }, {
       title: 'Embed',
       component: EmbedSideButton,
@@ -597,6 +601,20 @@ class App extends React.Component {
       ));
       return HANDLED;
     }
+
+    if (file.type.indexOf('video/') === 0) {
+      // eslint-disable-next-line no-undef
+      const src = URL.createObjectURL(file);
+      this.onChange(addNewBlockAt(
+        this.state.editorState,
+        selection.getAnchorKey(),
+        Block.VIDEO, {
+          src,
+        }
+      ));
+      return HANDLED;
+    }
+
     return NOT_HANDLED
   }
 

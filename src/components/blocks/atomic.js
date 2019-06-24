@@ -18,6 +18,20 @@ const AtomicBlock = (props) => {
       </div>
     );
   }
+
+  if (type === 'video') {
+    return (
+      <div className="md-block-atomic-wrapper">
+        <video controls>
+          <source role="presentation" src={data.src} />
+        </video>
+        <div className="md-block-atomic-controls">
+          <button>&times;</button>
+        </div>
+      </div>
+    );
+  }
+
   return <p>No supported block for {type}</p>;
 };
 

@@ -3,6 +3,7 @@ import CaptionBlock from './blocks/caption';
 import AtomicBlock from './blocks/atomic';
 import TodoBlock from './blocks/todo';
 import ImageBlock from './blocks/image';
+import VideoBlock from './blocks/video';
 import BreakBlock from './blocks/break';
 
 import { Block } from '../util/constants';
@@ -37,6 +38,14 @@ export default (setEditorState, getEditorState, extraProps) => (contentBlock) =>
         setEditorState,
         getEditorState,
         placeholder: extraProps ? extraProps.imageCaptionPlaceholder : '',
+      },
+    };
+    case Block.VIDEO: return {
+      component: VideoBlock,
+      props: {
+        setEditorState,
+        getEditorState,
+        placeholder: extraProps ? extraProps.videoCaptionPlaceholder : '',
       },
     };
     case Block.BREAK: return {

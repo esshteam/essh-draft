@@ -13,10 +13,12 @@ import CaptionBlock from './components/blocks/caption';
 import AtomicBlock from './components/blocks/atomic';
 import TodoBlock from './components/blocks/todo';
 import ImageBlock from './components/blocks/image';
+import VideoBlock from './components/blocks/video';
 import BreakBlock from './components/blocks/break';
 
 import ImageSideButton from './components/sides/image';
 import BreakSideButton from './components/sides/break';
+import VideoSideButton from './components/sides/video';
 
 export { Block, Inline, Entity, HANDLED, NOT_HANDLED } from './util/constants';
 export { BLOCK_BUTTONS, INLINE_BUTTONS } from './components/toolbar';
@@ -49,8 +51,10 @@ export {
   AtomicBlock,
   TodoBlock,
   ImageBlock,
+  VideoBlock,
   BreakBlock,
   ImageSideButton,
+  VideoSideButton,
   BreakSideButton,
 };
 

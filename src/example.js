@@ -24,6 +24,7 @@ import './components/blocks/blockquotecaption.scss';
 import './components/blocks/caption.scss';
 import './components/blocks/todo.scss';
 import './components/blocks/image.scss';
+import './components/blocks/video.scss';
 
 import {
   Editor,
@@ -35,6 +36,7 @@ import {
   beforeInput,
   getCurrentBlock,
   ImageSideButton,
+  VideoSideButton,
   rendererFn,
   HANDLED,
   NOT_HANDLED
@@ -321,6 +323,9 @@ class App extends React.Component {
     }, {
       title: 'Separator',
       component: SeparatorSideButton,
+    },{
+      title: 'Video',
+      component: VideoSideButton,
     }];
 
     this.exporter = setRenderOptions({

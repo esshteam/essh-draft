@@ -22,6 +22,7 @@ export const Block = {
   CAPTION: 'caption',
   TODO: 'todo',
   IMAGE: 'atomic:image',
+  VIDEO: 'atomic:video',
   BREAK: 'atomic:break',
 };
 

@@ -14,6 +14,7 @@ const InlineToolbar = (props) => {
       {props.buttons.map(type => {
         const iconLabel = {};
         iconLabel.label = type.label;
+        iconLabel.icon = type.icon;
         return (
           <StyleButton
             {...iconLabel}
